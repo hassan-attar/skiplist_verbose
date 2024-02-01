@@ -271,13 +271,13 @@ T SkipList<T>::removeVerbose(const T &item) {
         throw std::runtime_error("Item doesn't exist!");
     }; // don't need to delete anything
     for(int i = 0; i <= cur->level; i++) {
-        std::cout << "At Level " << std::setw(2) << i << ": " << (!update[i] ? (heads[i]? std::to_string(heads[i]->data) : "*") : std::to_string(update[i]->data)) << " -> " << cur->data << " -> " << (cur->next[i]? std::to_string(cur->next[i]->data): "*") << std::endl;
+        std::cout << "At Level " << std::setw(2) << i << ": " << (!update[i] ? (heads[i] && heads[i]->data != item? std::to_string(heads[i]->data) : "*") : std::to_string(update[i]->data)) << " -> " << cur->data << " -> " << (cur->next[i]? std::to_string(cur->next[i]->data): "*") << std::endl;
     }
 
 
     std::cout << "2- Rewiring..." << std::endl;
     for(int i = 0; i <= cur->level; i++){
-        std::cout << "At Level " << std::setw(2) << i << ": " << (!update[i] ? (heads[i]? std::to_string(heads[i]->data) : "*") : std::to_string(update[i]->data)) << " -> " << (cur->next[i]? std::to_string(cur->next[i]->data): "*") << std::endl;
+        std::cout << "At Level " << std::setw(2) << i << ": " << (!update[i] ? (heads[i] && heads[i]->data != item? std::to_string(heads[i]->data) : "*") : std::to_string(update[i]->data)) << " -> " << (cur->next[i]? std::to_string(cur->next[i]->data): "*") << std::endl;
     }
     for(int currentLevel = 0; currentLevel <= cur->level; currentLevel++){
         /*
