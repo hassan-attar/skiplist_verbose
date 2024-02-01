@@ -209,7 +209,7 @@ const Node<T>* SkipList<T>::binarySearchVerbose(const T &item) {
 template<typename T>
 const Node<T>* SkipList<T>::linearSearch(const T &item) {
     Node<T> *cur{heads[0]};
-    while(cur && item != cur->data){
+    while(cur && item > cur->data){
         cur = cur->next[0];
     }
     // cur now points to the item or the largest element smaller than the item.
@@ -221,7 +221,7 @@ const Node<T>* SkipList<T>::linearSearchVerbose(const T &item) {
     int comp{0};
     std::cout << "Searching for " << item << " using Linear Search..." << std::endl;
     Node<T> *cur{heads[0]};
-    while(cur && (comp++ >= 0) && item != cur->data){
+    while(cur && (comp++ >= 0) && item > cur->data){
         cur = cur->next[0];
     }
     std::cout << "Stats for linearSearch" << std::endl;
