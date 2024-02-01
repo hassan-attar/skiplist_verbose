@@ -45,8 +45,9 @@ int main() {
     return 0;
 }
 ```
-##Features
-- InsertVerbose
+## Features
+- InsertVerbose(const T &item)
+Inserts an item into the SkipList, if it does not already exist.
 <pre>
 Enter value to Insert (int): 13
 Level 0 : * -> 0    1    2    3    4    5    6    7    8    9    10   11   12   14   15   16   17   18   19   20   21   22   23   24   25    -> * 
@@ -68,4 +69,35 @@ Level 0 : * -> 0    1    2    3    4    5    6    7    8    9    10   11   12   
 Level 1 : * -> 0    1              4    5         7    8                   12   13   14             17                                            -> * 
 Level 2 : * ->                                    7                             13                  17                                            -> *
 Level 3 : * ->                                                                  13                                                                -> *
+</pre>
+
+- binarySearchVerbose(const T &item)
+<pre>
+Enter value to Search (int): 24
+Level 0 : * -> 0    1    2    3    4    5    6    7    8    9    10   11   12   14   15   16   17   18   19   20   21   22   23   24   25    -> * 
+Level 1 : * -> 0         2         4         6    7                   11        14                  18                       23   24         -> * 
+Level 2 : * ->           2         4         6                                                      18                                       -> * 
+Level 3 : * ->           2                   6                                                      18                                       -> * 
+Level 4 : * ->           2                   6                                                      18                                       -> * 
+Level 5 : * ->                               6                                                      18                                       -> * 
+Level 6 : * ->                               6                                                                                               -> * 
+Searching for 24 using Fast Search (similar to Binary Search)...
+Comparisons: 
+24 > 6 ?
+24 > 18 ?
+24 > 23 ?
+24 > 24 ?
+24 > 24 ?
+Stats for binarySearch
+Comparisons # 5
+Found ? true
+</pre>
+
+- linearSearchVerbose(const T &item)
+<pre>
+Enter value to Search (int): 24
+Searching for 24 using Linear Search...
+Stats for linearSearch
+Comparisons # 24
+Found ? true
 </pre>
