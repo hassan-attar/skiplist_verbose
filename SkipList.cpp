@@ -118,8 +118,8 @@ void SkipList<T>::insertVerbose(const T &item) {
     if(cur && cur->data == item) return; // don't add duplicates
     for(int i = 0; i < maxLevel; i++) {
         std::cout << "At Level " << std::setw(2) << i << " item should go between "
-        << (!update[i] ? (heads[i]? std::to_string(heads[i]->data) : "*") : std::to_string(update[i]->data)) <<
-        " and " << (update[i] && update[i]->next[i] ? std::to_string(update[i]->next[i]->data): "*")
+        << (!update[i] ? (heads[i] && heads[i]->data < item ? std::to_string(heads[i]->data) : "*") : std::to_string(update[i]->data)) <<
+        " and " << (update[i] && update[i]->next[i] ? std::to_string(update[i]->next[i]->data): (heads[i] && heads[i]->data > item ? std::to_string(heads[i]->data) : "*"))
         << std::endl;
         if(!heads[i]) {
             break;
@@ -131,7 +131,7 @@ void SkipList<T>::insertVerbose(const T &item) {
     Node<T> *newNode = new Node<T>(item, itemLevel);
     std::cout << "3- Rewiring..." << std::endl;
     for(int i = 0; i <= itemLevel; i++){
-        std::cout << "At Level " << std::setw(2) << i << ": " << (!update[i] ? (heads[i]? std::to_string(heads[i]->data) : "*") : std::to_string(update[i]->data)) << " -> " << newNode->data << " -> " << (update[i] && update[i]->next[i] ? std::to_string(update[i]->next[i]->data): "*") << std::endl;
+        std::cout << "At Level " << std::setw(2) << i << ": " << (!update[i] ? (heads[i] && heads[i]->data < item? std::to_string(heads[i]->data) : "*") : std::to_string(update[i]->data)) << " -> " << newNode->data << " -> " << (update[i] && update[i]->next[i] ? std::to_string(update[i]->next[i]->data): (heads[i] && heads[i]->data > item ? std::to_string(heads[i]->data) : "*")) << std::endl;
     }
     for(int currentLevel = 0; currentLevel <= itemLevel; currentLevel++){ //update the links of new node and the SkipList
         newNode->next[currentLevel] = update[currentLevel] ? update[currentLevel]->next[currentLevel] : heads[currentLevel];
