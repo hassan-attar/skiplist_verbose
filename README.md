@@ -46,7 +46,8 @@ int main() {
 }
 ```
 ## Features
-- InsertVerbose(const T &item)
+### Operations:
+- **InsertVerbose(const T &item)**
 Inserts an item into the SkipList, if it does not already exist.
 <pre>
 Enter value to Insert (int): 13
@@ -71,7 +72,7 @@ Level 2 : * ->                                    7                             
 Level 3 : * ->                                                                  13                                                                -> *
 </pre>
 
-- binarySearchVerbose(const T &item)
+- **binarySearchVerbose(const T &item)**
 <pre>
 Enter value to Search (int): 24
 Level 0 : * -> 0    1    2    3    4    5    6    7    8    9    10   11   12   14   15   16   17   18   19   20   21   22   23   24   25    -> * 
@@ -93,7 +94,7 @@ Comparisons # 5
 Found ? true
 </pre>
 
-- linearSearchVerbose(const T &item)
+- **linearSearchVerbose(const T &item)**
 <pre>
 Enter value to Search (int): 24
 Searching for 24 using Linear Search...
@@ -102,7 +103,7 @@ Comparisons # 24
 Found ? true
 </pre>
 
-- removeVerbose(const T &item)
+- **removeVerbose(const T &item)**
 <pre>
 Enter value to Remove (int): 17
 Level 0 : * -> 0    1    2    3    4    5    6    7    8    9    10   11   12   14   15   16   17   18   19   20   21   22   23   24   25    -> * 
@@ -130,4 +131,59 @@ Level 1 : * ->      1    2    3    4    5    6    7         9                   
 Level 2 : * ->      1         3    4                                                 15        18        20                             -> * 
 Level 3 : * ->                                                                                 18        20                             -> * 
 
+</pre>
+
+### Searching in Large dataset (Size 1000000):
+<pre>
+Searching for 713245 using Linear Search...
+Stats for linearSearch
+Comparisons # 713245
+Found ? true
+##################################################
+Searching for 713245 using Fast Search (similar to Binary Search)...
+Comparisons: 
+713245 > 161906 ?
+713245 > 675651 ?
+713245 > 988126 ?
+713245 > 988126 ?
+713245 > 719788 ?
+713245 > 685302 ?
+713245 > 719788 ?
+713245 > 719788 ?
+713245 > 706027 ?
+713245 > 717484 ?
+713245 > 717484 ?
+713245 > 713312 ?
+713245 > 707935 ?
+713245 > 708493 ?
+713245 > 709812 ?
+713245 > 711960 ?
+713245 > 713312 ?
+713245 > 712614 ?
+713245 > 712760 ?
+713245 > 712956 ?
+713245 > 713312 ?
+713245 > 713040 ?
+713245 > 713312 ?
+713245 > 713158 ?
+713245 > 713312 ?
+713245 > 713312 ?
+713245 > 713164 ?
+713245 > 713191 ?
+713245 > 713263 ?
+713245 > 713208 ?
+713245 > 713263 ?
+713245 > 713222 ?
+713245 > 713262 ?
+713245 > 713234 ?
+713245 > 713245 ?
+713245 > 713235 ?
+713245 > 713237 ?
+713245 > 713243 ?
+713245 > 713245 ?
+713245 > 713244 ?
+713245 > 713245 ?
+Stats for binarySearch
+Comparisons # 41
+Found ? true
 </pre>
