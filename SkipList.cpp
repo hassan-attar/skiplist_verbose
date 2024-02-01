@@ -173,11 +173,13 @@ const Node<T>* SkipList<T>::binarySearchVerbose(const T &item) {
     while (currentLevel >= 0){
         cur = prev ? prev->next[currentLevel] : heads[currentLevel];
         while(cur && (comp++ >= 0) && item > cur->data){ // move cur to the smallest element, larger than or equal to item or null(end of that level)
-            std::cout << item << " > " << cur->data << " ?" << std::endl;
+            std::cout << "Level " << std::setw(2) << currentLevel << ": " << item << " > " << cur->data << " ? TRUE => Go to next node" << std::endl;
             prev = cur;
             cur = cur->next[currentLevel];
         }
-        if(cur) std::cout << item << " > " << cur->data << " ?" << std::endl;
+        if(cur) std::cout << "Level " << std::setw(2) << currentLevel << ": " << item << " > " << cur->data << " ? FALSE - " ;
+        if(heads[currentLevel] && !cur) std::cout << "Reached end of level - ";
+        if(heads[currentLevel]) std::cout << "Go one level down" << std::endl;
         //if(cur) std::cout << item << " = " << cur->data << " ?" << std::endl;
         //if(cur && (comp++>=0) &&cur->data == item) break;
         /*
@@ -197,6 +199,7 @@ const Node<T>* SkipList<T>::binarySearchVerbose(const T &item) {
         // we either reached the end of a level, or a node whose data is larger than or equal to item
         --currentLevel; // go to the bottom level.
     }
+    std::cout << "--- End of searching ---" << std::endl;
     std::cout << "Stats for binarySearch" << std::endl;
     std::cout << "Comparisons # " << comp << "\nFound ? " << std::boolalpha << (cur && cur->data == item) <<std::endl;
     if(cur && cur->data == item) return cur;
