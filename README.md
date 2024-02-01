@@ -45,4 +45,27 @@ int main() {
     return 0;
 }
 ```
-
+##Features
+- InsertVerbose
+<pre>
+Enter value to Insert (int): 13
+Level 0 : * -> 0    1    2    3    4    5    6    7    8    9    10   11   12   14   15   16   17   18   19   20   21   22   23   24   25    -> * 
+Level 1 : * -> 0    1              4    5         7    8                   12   14             17                                            -> * 
+Level 2 : * ->                                    7                                            17                                            -> * 
+1- Finding the place for 13...
+At Level 0  item should go between 12 and 14
+At Level 1  item should go between 12 and 14
+At Level 2  item should go between 7 and 17
+At Level 3  item should go between * and *
+2- Creating Node, Node will be promoted to level 2
+3- Rewiring...
+At Level 0 : 12 -> 13 -> 14
+At Level 1 : 12 -> 13 -> 14
+At Level 2 :  7 -> 13 -> 17
+At Level 3 :  * -> 13 -> *
+#### >>> Insert Completed <<< ####
+Level 0 : * -> 0    1    2    3    4    5    6    7    8    9    10   11   12   13   14   15   16   17   18   19   20   21   22   23   24   25    -> * 
+Level 1 : * -> 0    1              4    5         7    8                   12   13   14             17                                            -> * 
+Level 2 : * ->                                    7                             13                  17                                            -> *
+Level 3 : * ->                                                                  13                                                                -> *
+</pre>
