@@ -10,13 +10,12 @@ Level 4 : * ->                                                                  
 </pre>
 ## Overview
 
-This repository contains a C++ implementation of a SkipList data structure. SkipList is a data structure that allows for efficient search, insertion, and removal of elements, providing logarithmic time complexity for these operations on average.
-mized Level Generation:** The SkipList utilizes a randomized process to determine the level of each node, providing a balanced structure.
+This repository contains a C++ implementation of a SkipList data structure. SkipList is a data structure that allows for efficient search, insertion, and removal of elements, providing logarithmic time complexity for these operations on average. The SkipList utilizes a randomized process (coin flip) to determine the level of each node.
 
 ## Usage
 
 - **To use the SkipList in your project, you can include the `SkipList.h` header file and instantiate a `SkipList` object with the desired type.**
-- **You can run the command-line based application, to interact with the SkipList, you can perform operations and activate the verbose mode. (recommended for educational purposes)**
+- **You can run the command-line-based application, to interact with the SkipList, you can perform operations and activate the verbose mode. (recommended for educational purposes)**
 
 ## How to Compile the program:
 ```bash
