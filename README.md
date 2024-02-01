@@ -1,12 +1,13 @@
 # SkipList (Probabilistic Data Structure)
 
 Sample Run of size 25:
+<pre>
 Level 0 : * -> 0    1    2    3    4    5    6    7    8    9    10   11   12   13   14   15   16   17   18   19   20   21   22   23   24   25    -> * 
 Level 1 : * ->      1                   5         7    8         10   11                  15        17   18   19   20        22        24   25    -> * 
 Level 2 : * ->      1                   5                        10                       15             18                            24   25    -> * 
 Level 3 : * ->      1                   5                                                                18                                       -> * 
 Level 4 : * ->                                                                                           18                                       -> * 
-
+</pre>
 ## Overview
 
 This repository contains a C++ implementation of a SkipList data structure. SkipList is a data structure that allows for efficient search, insertion, and removal of elements, providing logarithmic time complexity for these operations on average.
