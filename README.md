@@ -73,23 +73,25 @@ Level 3 : * ->                                                                  
 
 - **binarySearchVerbose(const T &item)**
 <pre>
-Enter value to Search (int): 24
-Level 0 : * -> 0    1    2    3    4    5    6    7    8    9    10   11   12   14   15   16   17   18   19   20   21   22   23   24   25    -> * 
-Level 1 : * -> 0         2         4         6    7                   11        14                  18                       23   24         -> * 
-Level 2 : * ->           2         4         6                                                      18                                       -> * 
-Level 3 : * ->           2                   6                                                      18                                       -> * 
-Level 4 : * ->           2                   6                                                      18                                       -> * 
-Level 5 : * ->                               6                                                      18                                       -> * 
-Level 6 : * ->                               6                                                                                               -> * 
-Searching for 24 using Fast Search (similar to Binary Search)...
+Enter value to Search (int): 19
+Level 0 : * -> 0    1    2    3    4    5    6    7    8    9    10   11   12   13   14   15   16   17   18   19   20   21   22   23   24   25   26   27   28   29   30    -> * 
+Level 1 : * -> 0    1         3              6    7         9              12   13        15        17   18                  22        24                       29   30    -> * 
+Level 2 : * ->      1                        6                             12             15                                 22                                 29         -> * 
+Level 3 : * ->      1                                                      12             15                                 22                                            -> * 
+Level 4 : * ->                                                                            15                                 22                                            -> * 
+Searching for 19 using Fast Search (similar to Binary Search)...
 Comparisons: 
-24 > 6 ?
-24 > 18 ?
-24 > 23 ?
-24 > 24 ?
-24 > 24 ?
+Level 4 : 19 > 15 ? TRUE => Go to next node
+Level 4 : 19 > 22 ? FALSE - Go one level down
+Level 3 : 19 > 22 ? FALSE - Go one level down
+Level 2 : 19 > 22 ? FALSE - Go one level down
+Level 1 : 19 > 17 ? TRUE => Go to next node
+Level 1 : 19 > 18 ? TRUE => Go to next node
+Level 1 : 19 > 22 ? FALSE - Go one level down
+Level 0 : 19 > 19 ? FALSE - Go one level down
+--- End of searching ---
 Stats for binarySearch
-Comparisons # 5
+Comparisons # 8
 Found ? true
 </pre>
 
@@ -132,57 +134,60 @@ Level 3 : * ->                                                                  
 
 </pre>
 
-### Searching in Large dataset (Size 1000000):
+### Searching in Large dataset (Size 10,000,000):
 <pre>
-Searching for 713245 using Linear Search...
-Stats for linearSearch
-Comparisons # 713245
-Found ? true
-##################################################
-Searching for 713245 using Fast Search (similar to Binary Search)...
+Enter value to Search (int): 5932041
+Searching for 5932041 using Fast Search (similar to Binary Search)...
 Comparisons: 
-713245 > 161906 ?
-713245 > 675651 ?
-713245 > 988126 ?
-713245 > 988126 ?
-713245 > 719788 ?
-713245 > 685302 ?
-713245 > 719788 ?
-713245 > 719788 ?
-713245 > 706027 ?
-713245 > 717484 ?
-713245 > 717484 ?
-713245 > 713312 ?
-713245 > 707935 ?
-713245 > 708493 ?
-713245 > 709812 ?
-713245 > 711960 ?
-713245 > 713312 ?
-713245 > 712614 ?
-713245 > 712760 ?
-713245 > 712956 ?
-713245 > 713312 ?
-713245 > 713040 ?
-713245 > 713312 ?
-713245 > 713158 ?
-713245 > 713312 ?
-713245 > 713312 ?
-713245 > 713164 ?
-713245 > 713191 ?
-713245 > 713263 ?
-713245 > 713208 ?
-713245 > 713263 ?
-713245 > 713222 ?
-713245 > 713262 ?
-713245 > 713234 ?
-713245 > 713245 ?
-713245 > 713235 ?
-713245 > 713237 ?
-713245 > 713243 ?
-713245 > 713245 ?
-713245 > 713244 ?
-713245 > 713245 ?
+Level 22: 5932041 > 273486 ? TRUE => Go to next node
+Level 22: 5932041 > 1057797 ? TRUE => Go to next node
+Reached end of level - Go one level down
+Level 21: 5932041 > 4937902 ? TRUE => Go to next node
+Level 21: 5932041 > 5747947 ? TRUE => Go to next node
+Level 21: 5932041 > 8673141 ? FALSE - Go one level down
+Level 20: 5932041 > 8673141 ? FALSE - Go one level down
+Level 19: 5932041 > 6389008 ? FALSE - Go one level down
+Level 18: 5932041 > 6383491 ? FALSE - Go one level down
+Level 17: 5932041 > 5881698 ? TRUE => Go to next node
+Level 17: 5932041 > 6383491 ? FALSE - Go one level down
+Level 16: 5932041 > 6157260 ? FALSE - Go one level down
+Level 15: 5932041 > 6005646 ? FALSE - Go one level down
+Level 14: 5932041 > 5882211 ? TRUE => Go to next node
+Level 14: 5932041 > 5888368 ? TRUE => Go to next node
+Level 14: 5932041 > 5923170 ? TRUE => Go to next node
+Level 14: 5932041 > 5954223 ? FALSE - Go one level down
+Level 13: 5932041 > 5954223 ? FALSE - Go one level down
+Level 12: 5932041 > 5929705 ? TRUE => Go to next node
+Level 12: 5932041 > 5930920 ? TRUE => Go to next node
+Level 12: 5932041 > 5943616 ? FALSE - Go one level down
+Level 11: 5932041 > 5931541 ? TRUE => Go to next node
+Level 11: 5932041 > 5932095 ? FALSE - Go one level down
+Level 10: 5932041 > 5932095 ? FALSE - Go one level down
+Level 9 : 5932041 > 5932095 ? FALSE - Go one level down
+Level 8 : 5932041 > 5932095 ? FALSE - Go one level down
+Level 7 : 5932041 > 5931703 ? TRUE => Go to next node
+Level 7 : 5932041 > 5931752 ? TRUE => Go to next node
+Level 7 : 5932041 > 5932095 ? FALSE - Go one level down
+Level 6 : 5932041 > 5931866 ? TRUE => Go to next node
+Level 6 : 5932041 > 5931898 ? TRUE => Go to next node
+Level 6 : 5932041 > 5932093 ? FALSE - Go one level down
+Level 5 : 5932041 > 5932056 ? FALSE - Go one level down
+Level 4 : 5932041 > 5931950 ? TRUE => Go to next node
+Level 4 : 5932041 > 5931952 ? TRUE => Go to next node
+Level 4 : 5932041 > 5931960 ? TRUE => Go to next node
+Level 4 : 5932041 > 5932024 ? TRUE => Go to next node
+Level 4 : 5932041 > 5932056 ? FALSE - Go one level down
+Level 3 : 5932041 > 5932032 ? TRUE => Go to next node
+Level 3 : 5932041 > 5932037 ? TRUE => Go to next node
+Level 3 : 5932041 > 5932038 ? TRUE => Go to next node
+Level 3 : 5932041 > 5932050 ? FALSE - Go one level down
+Level 2 : 5932041 > 5932043 ? FALSE - Go one level down
+Level 1 : 5932041 > 5932043 ? FALSE - Go one level down
+Level 0 : 5932041 > 5932039 ? TRUE => Go to next node
+Level 0 : 5932041 > 5932040 ? TRUE => Go to next node
+Level 0 : 5932041 > 5932041 ? FALSE - Go one level down
+--- End of searching ---
 Stats for binarySearch
-Comparisons # 41
+Comparisons # 46
 Found ? true
 </pre>
