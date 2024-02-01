@@ -101,3 +101,33 @@ Stats for linearSearch
 Comparisons # 24
 Found ? true
 </pre>
+
+- removeVerbose(const T &item)
+<pre>
+Enter value to Remove (int): 17
+Level 0 : * -> 0    1    2    3    4    5    6    7    8    9    10   11   12   14   15   16   17   18   19   20   21   22   23   24   25    -> * 
+Level 1 : * ->      1    2    3    4    5    6    7         9                        15        17   18        20                       25    -> * 
+Level 2 : * ->      1         3    4                                                 15        17   18        20                             -> * 
+Level 3 : * ->                                                                                 17   18        20                             -> * 
+Level 4 : * ->                                                                                 17                                            -> * 
+Deleting 17 From the list...
+1- Finding 17...
+At Level 0 : 16 -> 17 -> 18
+At Level 1 : 15 -> 17 -> 18
+At Level 2 : 15 -> 17 -> 18
+At Level 3 : * -> 17 -> 18
+At Level 4 : * -> 17 -> *
+2- Rewiring...
+At Level 0 : 16 -> 18
+At Level 1 : 15 -> 18
+At Level 2 : 15 -> 18
+At Level 3 : * -> 18
+At Level 4 : * -> *
+3- Removing the node...
+#### >>> Remove Completed <<< ####
+Level 0 : * -> 0    1    2    3    4    5    6    7    8    9    10   11   12   14   15   16   18   19   20   21   22   23   24   25    -> * 
+Level 1 : * ->      1    2    3    4    5    6    7         9                        15        18        20                       25    -> * 
+Level 2 : * ->      1         3    4                                                 15        18        20                             -> * 
+Level 3 : * ->                                                                                 18        20                             -> * 
+
+</pre>
