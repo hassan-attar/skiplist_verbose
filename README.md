@@ -11,41 +11,36 @@ Level 4 : * ->                                                                  
 ## Overview
 
 This repository contains a C++ implementation of a SkipList data structure. SkipList is a data structure that allows for efficient search, insertion, and removal of elements, providing logarithmic time complexity for these operations on average. The SkipList utilizes a randomized process (coin flip) to determine the level of each node.
-This repo is a verbose version. It prints some information regarding how it is maintaining data to the console. It is great for educational/debugging purposes.
-For a lean implementation of the SkipList class please visit [skiplist](https://github.com/hassan-attar/skiplist).
+
+**This repo is a verbose version. It prints some information regarding how it is maintaining data to the console. It is great for educational/debugging purposes.
+For a lean implementation of the SkipList class please visit [skiplist](https://github.com/hassan-attar/skiplist).**
 
 ## Usage
 
-- **To use the SkipList in your project, you can include the `SkipList.h` header file and instantiate a `SkipList` object with the desired type.**
-- **You can run the command-line-based application, to interact with the SkipList, you can perform operations and activate the verbose mode. (recommended for educational purposes)**
-
+- **You can run the command-line-based application, to interact with the SkipList, and you can perform operations and activate the visualAid mode. (recommended for educational purposes)**
+- **By default, it prints some statistics to the console, if you want to see the SkipList before/after the operation, please activate visualAid mode.**
 ## How to Compile the program:
 ```bash
-g++ -std=c++17 Node.cpp RandomCoinFlip.cpp SkipList.cpp main.cpp -o prog && ./prog
+g++ -std=c++17 skiplist/RandomCoinFlip.cpp main.cpp -o prog && ./prog
 ```
-## How to use the SkipList in your applications:
-```cpp
-#include "SkipList.h"
-
-int main() {
-    SkipList<int> skipList;
-    
-    // Example: Inserting elements
-    skipList.insert(42);
-    skipList.insert(18);
-    skipList.insert(20);
-    skipList.insert(10);
-    
-    // Example: Searching for an element
-    const Node<int>* result = skipList.binarySearch(18);
-    if (result) {
-        std::cout << "Element found: " << result->data << std::endl;
-    } else {
-        std::cout << "Element not found." << std::endl;
-    }
-    return 0;
-}
-```
+## Application Menu:
+- **Create a SkipList from Scratch**
+creates an empty SkipList.
+- **Create a SkipList with size N**
+it will first create a vector of size N, fill it with values from 0 to N (it doesn't add N/2 element, so you can add it later to see insertion into the middle of the SkipList). finally it will shuffle the array, and then insert the elements.
+- **Working With SkipList**
+Here is the rest of the operations that you can perform:
+<pre>
+SkipList
+1 - Add Element
+2 - Remove Element
+3 - Search Element (Linear)
+4 - Search Element (Binary)
+5 - Display Elements Head To Tail (Level 0)
+6 - Display Elements Level by Level
+7 - Switch VisualAid mode (Status: OFF)
+8 - Back to Main Menu (Deleting the created SkipList)
+</pre>
 ## Features
 ### Operations:
 - **InsertVerbose(const T &item)**
