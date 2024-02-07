@@ -1,4 +1,4 @@
-# SkipList (Probabilistic Data Structure)
+# SkipListVerbose (Probabilistic Data Structure)
 
 Sample Run of size 25:
 <pre>
@@ -11,6 +11,8 @@ Level 4 : * ->                                                                  
 ## Overview
 
 This repository contains a C++ implementation of a SkipList data structure. SkipList is a data structure that allows for efficient search, insertion, and removal of elements, providing logarithmic time complexity for these operations on average. The SkipList utilizes a randomized process (coin flip) to determine the level of each node.
+This repo is a verbose version. It prints some information regarding how it is maintaining data to the console. It is great for educational/debugging purposes.
+For a lean implementation of the SkipList class please visit [skiplist](https://github.com/hassan-attar/skiplist).
 
 ## Usage
 
