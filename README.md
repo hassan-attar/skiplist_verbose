@@ -43,7 +43,7 @@ SkipList
 </pre>
 ## Features
 ### Operations:
-- **InsertVerbose(const T &item)**
+- **insertVerbose(const T &item)**
 Inserts an item into the SkipList, if it does not already exist.
 <pre>
 Enter value to Insert (int): 13
@@ -68,7 +68,7 @@ Level 2 : * ->                                    7                             
 Level 3 : * ->                                                                  13                                                                -> *
 </pre>
 
-- **binarySearchVerbose(const T &item)**
+- **findVerbose(const T &item)**
 <pre>
 Enter value to Search (int): 19
 Level 0 : * -> 0    1    2    3    4    5    6    7    8    9    10   11   12   13   14   15   16   17   18   19   20   21   22   23   24   25   26   27   28   29   30    -> * 
