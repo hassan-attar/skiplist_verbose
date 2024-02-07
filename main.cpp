@@ -1,5 +1,5 @@
 #include <iostream>
-#include "SkipList.cpp"
+#include "SkipListVerbose.h"
 #include <vector>
 #include <algorithm>
 #include <random>
@@ -42,7 +42,7 @@ int getChoice(int maxAllowedChoice){
     return c;
 }
 
-SkipList<int>* createSkipList(){
+SkipListVerbose<int>* createSkipList(){
     int size{0};
     std::cout << "Enter Size: " << std::endl;
     size = getChoice(INT_MAX);
@@ -60,8 +60,7 @@ SkipList<int>* createSkipList(){
     int numLevel{20};
     std::cout << "Enter Number of levels for SkipList (Default is 20 (recommended)): (MAX is 100)" << std::endl;
     numLevel = getChoice(100);
-    SkipList<int>::setMaxLevel(numLevel);
-    SkipList<int> *s = new SkipList<int>();
+    SkipListVerbose<int> *s = new SkipListVerbose<int>(numLevel);
     std::cout << "Shuffling numbers in the vector..." << std::endl;
     std::random_device rd;
     std::mt19937 g(rd());
@@ -80,17 +79,16 @@ SkipList<int>* createSkipList(){
 
 }
 
-SkipList<int>* createDefaultSkipList(){
+SkipListVerbose<int>* createDefaultSkipList(){
     int numLevel{20};
     std::cout << "Enter Number of levels for SkipList (Default is 20 (recommended)): (MAX is 100)" << std::endl;
     numLevel = getChoice(100);
-    SkipList<int>::setMaxLevel(numLevel);
-    SkipList<int> *s = new SkipList<int>();
+    SkipListVerbose<int> *s = new SkipListVerbose<int>();
     std::cout << "#### SkipList Created. ####"<< std::endl;
     return s;
 }
 
-void addElement(SkipList<int> *s, bool visualAid){
+void addElement(SkipListVerbose<int> *s, bool visualAid){
     int e{0};
     while(true){
         std::cout << "Enter value to Insert (int): ";
@@ -120,7 +118,7 @@ bool switchVisualAid(){
     return c==1;
 }
 
-void removeElement(SkipList<int> *s, bool visualAid){
+void removeElement(SkipListVerbose<int> *s, bool visualAid){
     int e{0};
     while(true){
         std::cout << "Enter value to Remove (int): ";
@@ -146,7 +144,7 @@ void removeElement(SkipList<int> *s, bool visualAid){
     }
 }
 
-void searchElement(SkipList<int> *s, bool visualAid, bool isBinary){
+void searchElement(SkipListVerbose<int> *s, bool visualAid, bool isBinary){
     int e{0};
     while(true){
         std::cout << "Enter value to Search (int): ";
@@ -160,14 +158,14 @@ void searchElement(SkipList<int> *s, bool visualAid, bool isBinary){
         if(visualAid){
             if(isBinary){
                 s->displayLevelByLevel();
-                s->binarySearchVerbose(e);
+                s->findVerbose(e);
             } else {
                 s->displayHeadToTail();
                 s->linearSearchVerbose(e);
             }
         }else{
             if(isBinary){
-                s->binarySearchVerbose(e);
+                s->findVerbose(e);
             } else {
                 s->linearSearchVerbose(e);
             }
@@ -176,7 +174,7 @@ void searchElement(SkipList<int> *s, bool visualAid, bool isBinary){
     }
 }
 
-void workWithSkipList(SkipList<int> *s){
+void workWithSkipList(SkipListVerbose<int> *s){
     int c{0};
     bool visualAid{false};
     while(true){
@@ -215,7 +213,7 @@ void workWithSkipList(SkipList<int> *s){
 
 int mainMenu(){
     int c{0};
-    SkipList<int> *s;
+    SkipListVerbose<int> *s;
     while(true) {
         displayMainMenu();
         c = getChoice(3);
