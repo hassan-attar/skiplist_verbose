@@ -24,11 +24,11 @@ For a lean implementation of the SkipList class please visit [skiplist](https://
 g++ -std=c++17 skiplist/RandomCoinFlip.cpp main.cpp -o prog && ./prog
 ```
 ## Application Menu:
-- **Create a SkipList from Scratch**
+- **Create a SkipList from Scratch** :
 creates an empty SkipList.
-- **Create a SkipList with size N**
-it will first create a vector of size N, fill it with values from 0 to N (it doesn't add N/2 element, so you can add it later to see insertion into the middle of the SkipList). finally it will shuffle the array, and then insert the elements.
-- **Working With SkipList**
+- **Create a SkipList with size N** :
+it will first create a vector of size N fill it with values from 0 to N (it doesn't add N/2 element, so you can add it later to see insertion into the middle of the SkipList). finally it will shuffle the array, and then insert the elements.
+- **Working With SkipList** :
 Here is the rest of the operations that you can perform:
 <pre>
 SkipList
